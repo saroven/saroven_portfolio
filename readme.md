@@ -8,9 +8,9 @@ this project has two parts <br>
 - 1 Front end 
 - 2 Back end
 
-In front end i've used 	<p><a href="https://startbootstrap.com/themes/freelancer">Freelancer <pre>A one page freelancer bootstrap theme</pre></a></p>
+In front end i've used 	<p><a href="https://startbootstrap.com/themes/freelancer">Freelancer</a></p>
 
-In the back end i've used  <p><a href="https://startbootstrap.com/themes/sb-admin-2">SB Admin 2 <pre>A free Bootstrap admin bootstrap theme</pre></a></p>
+In the back end i've used  <p><a href="https://startbootstrap.com/themes/sb-admin-2">SB Admin 2 </a></p>
 
 The programming language i've used in this project  is PHP and Laravel
 
