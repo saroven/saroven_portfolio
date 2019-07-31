@@ -17,7 +17,7 @@ The programming language i've used in this project  is PHP and Laravel
 You can also checkout my other project on github links below:
 
 - [saroven_template(HTML & Bootstrap)](https://github.com/saroven/saroven_template).
-- [saroven_cv](https://github.com/saroven/saroven_cv).
+- [saroven_cv(HTML & CSS)](https://github.com/saroven/saroven_cv).
 - [Student Registration form (HTML & Bootstrap)](https://github.com/saroven/student-registration-form) .
 - [Simple Calculator(jQuery & HTML & jQuery)](https://github.com/saroven/simple-calculator-using-jquery-and-html).
 - [Attendance System (HTML, Bootstrap, jQuery, PHP, MysQl)](https://github.com/saroven/attendance).
