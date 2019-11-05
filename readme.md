@@ -8,11 +8,11 @@ this project has two parts <br>
 - 1 Front end 
 - 2 Back end
 
-In front end i've used 	<p><a href="https://startbootstrap.com/themes/freelancer">Freelancer</a></p>
+In front end i've used 	<p><a href="https://startbootstrap.com/themes/freelancer">Freelancer Bootstrap Template</a></p>
 
-In the back end i've used  <p><a href="https://startbootstrap.com/themes/sb-admin-2">SB Admin 2 </a></p>
+In the back end i've used  <p><a href="https://startbootstrap.com/themes/sb-admin-2">SB Admin 2 Template</a></p>
 
-The programming language i've used in this project  is PHP and Laravel
+The programming language i've used in this project  is PHP and Laravel and MysQL
 
 You can also checkout my other project on github links below:
 
@@ -25,9 +25,13 @@ You can also checkout my other project on github links below:
 
 ## How can you use this project
 
-If you want to use this project, You can simply dowload this project and config cache and generate key by this command below:
+If you want to use this project, You can simply download this project perform those command in your terminal or powershell:
 
-<code>php artisan config:cache</code>.
+<code>php artisan config:cache</code>
+
+<code>php artisan key:generate</code>
+
+<code>composer install && composer update</code>
 
 if	you faced any problem please send me an e-mail to [saroven@yahoo.com](mailto:saroven@yahoo.com)
 

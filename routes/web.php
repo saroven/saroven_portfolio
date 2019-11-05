@@ -17,7 +17,7 @@ Route::get('welcome', function () {
 
 Route::get('/', 'indexController@index');
 
-Route::get('/admin', 'indexController@adminView');
+Route::get('/admin', 'indexController@adminView')->middleware('auth');
 
 Route::get('/admin/profile', 'indexController@viewProfile');
 
@@ -59,3 +59,7 @@ Route::get('/admin/message', 'indexController@message');
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -25,7 +25,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top"><?php if ($info->sitename){echo $info->sitename;}else{echo config('app.name');}?></a>
+      <a class="navbar-brand js-scroll-trigger" href="#page-top"><?php if (!empty($info->sitename)){echo $info->sitename;}else{echo config('app.name');}?></a>
       <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
@@ -51,10 +51,10 @@
     <div class="container d-flex align-items-center flex-column">
 
       <!-- Masthead Avatar Image -->
-      <img class="masthead-avatar mb-5" style="border-radius: 50%;height: 245px;" src="{{ asset('img') }}/{{$info->image}}" alt="">
+      <img class="masthead-avatar mb-5" style="border-radius: 50%;height: 245px;" src="{{ asset('img') }}/{{$info->image ?? ''}}" alt="">
 
       <!-- Masthead Heading -->
-      <h1 class="masthead-heading text-uppercase mb-0"> {{ $info->name }} </h1>
+      <h1 class="masthead-heading text-uppercase mb-0"> {{ $info->name ?? 'Name' }} </h1>
 
       <!-- Icon Divider -->
       <div class="divider-custom divider-light">
@@ -66,7 +66,7 @@
       </div>
 
       <!-- Masthead Subheading -->
-      <p class="masthead-subheading font-weight-light mb-0"> {{ $info->title }} </p>
+      <p class="masthead-subheading font-weight-light mb-0"> {{ $info->title ?? 'Title' }} </p>
 
     </div>
   </header>
@@ -93,13 +93,13 @@
         <!-- Portfolio Items-->
         @foreach($portfolios as $portfolio)
         <div class="col-md-6 col-lg-4">
-          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal{{ $portfolio->id }}">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal{{ $portfolio->id ?? '' }}">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="img/portfolio/{{$portfolio->image}}" alt="">
+            <img class="img-fluid" src="img/portfolio/{{$portfolio->image ?? ''}}" alt="">
           </div>
         </div>
         @endforeach
@@ -129,7 +129,7 @@
       <!-- About Section Content -->
       <div class="row">
         <div class="col-lg-4 ml-auto">
-          <p class="lead">{{ $info->about }}</p>
+          <p class="lead">{{ $info->about ?? 'About' }}</p>
         </div>
         <div class="col-lg-4 mr-auto">
           <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias laborum delectus nobis est laudantium suscipit saepe, ea nihil, facilis illo, tenetur, quae harum iste ullam modi illum reprehenderit et! Quia excepturi porro perferendis facilis laboriosam ducimus p
@@ -220,7 +220,7 @@
         <!-- Footer Location -->
         <div class="col-lg-4 mb-5 mb-lg-0">
           <h4 class="text-uppercase mb-4">Location</h4>
-          <p class="lead mb-0"> {{ $info->location }} </p>
+          <p class="lead mb-0"> {{ $info->location ?? 'Location' }} </p>
         </div>
 
         <!-- Footer Social Icons -->
@@ -293,9 +293,9 @@
                   <div class="divider-custom-line"></div>
                 </div>
                 <!-- Portfolio Modal - Image -->
-                <img class="img-fluid rounded mb-5" src="img/portfolio/{{ $portfolio->image }}" alt="">
+                <img class="img-fluid rounded mb-5" src="img/portfolio/{{ $portfolio->image ?? '' }}" alt="">
                 <!-- Portfolio Modal - Text -->
-                <p class="mb-5">{{ $portfolio->description }}</p>
+                <p class="mb-5">{{ $portfolio->description ?? 'Description' }}</p>
                 <a href="https://{{$portfolio->link}}" target="_blank" class="btn btn-info">Live View</a>
                 <button class="btn btn-primary" href="#" data-dismiss="modal">
                   <i class="fas fa-times fa-fw"></i>
