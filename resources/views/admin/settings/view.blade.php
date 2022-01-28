@@ -1,15 +1,15 @@
 @extends('admin.layout.master')
-@section('content')    
+@section('content')
     <!-- Page Heading -->
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Setting</h1>
     <a href="{{ url('/admin/settings/edit') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Edit Infirmation</a>
   </div>
 
-     
+
 <!-- Content Row -->
   <!-- <div class="row"> -->
-    
+
  <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -29,31 +29,31 @@
                       <th>Image</th>
                     </tr>
                   </thead>
-                  
+
                   <tbody>
                     <tr>
                       <td>
-                        {{ $info->name }}
+                        {{ $info->name ?? '' }}
                       </td>
                       <td>
-                        {{ $info->sitename }}
+                        {{ $info->sitename ?? ''}}
                       </td>
                       <td>
-                        {{ $info->email }}
+                        {{ $info->email ?? '' }}
                       </td>
                       <td>
-                        {{ $info->title }}
+                        {{ $info->title ?? '' }}
                       </td>
                       <td>
-                        {{ $info->about }}
+                        {{ $info->about ?? '' }}
                       </td>
                       <td>
-                        {{ $info->location }}
+                        {{ $info->location ?? '' }}
                       </td>
                       <td>
-                        <img style="height: 200px;" src="../img/{{ $info->image }}" alt="">
+                        <img style="height: 200px;" src="../img/{{ $info->image ?? '' }}" alt="">
                       </td>
-                      
+
                     </tr>
                   </tbody>
                 </table>

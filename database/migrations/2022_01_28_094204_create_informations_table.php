@@ -11,10 +11,17 @@ class CreateInformationsTable extends Migration
      *
      * @return void
      */
+
     public function up()
     {
         Schema::create('informations', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('sitename');
+            $table->string('title');
+            $table->string('email');
+            $table->string('location');
+            $table->string('image')->default('');
             $table->timestamps();
         });
     }

@@ -18,7 +18,7 @@ class indexController extends Controller
         $portfolios = Portfolios::all();
     	return view('index', compact('info', 'portfolios', 'messages'));
     }
-    
+
 
     public function adminView(){
         $messages = Message::all();
@@ -30,13 +30,13 @@ class indexController extends Controller
 
      public function viewProfile(){
         $messages = Message::all();
-    	
+
     	return view('admin/profile/view', compact('messages'));
     }
 
     public function editProfile(){
         $messages = Message::all();
-    	
+
     	return view('admin/profile/edit', compact('messages'));
     }
 
@@ -93,12 +93,12 @@ class indexController extends Controller
 	    					'location' => $request->location);
         }
 
-
-
-			Information::where('id', $id)->update($data);
-
-
-
+			$information = Information::where('id', 1)->first();
+			if(!empty($information)){
+				Information::where('id', $id)->update($data);
+			}else{
+				Information::create($data);
+			}
 
             return redirect('/admin/settings')->with('success','User Updated Successfully');
 
@@ -118,7 +118,7 @@ class indexController extends Controller
         $title = 'Add Portfolio';
     	$menu= 'portfolio';
     	return view('admin/portfolio/add', compact('menu', 'info', 'title', 'messages'));
-    } 
+    }
 
     public function viewPortfolio(){
         $messages = Message::all();
@@ -128,7 +128,7 @@ class indexController extends Controller
         $menu= 'portfolio';
 
     	return view('admin/portfolio/view', compact('portfolios', 'menu', 'info', 'title', 'messages'));
-    } 
+    }
 
     public function insertPortfolio(Request $request){
 
@@ -144,7 +144,7 @@ class indexController extends Controller
             $fileName = null;
             $fileName = time().'-'.rand('12345678', 9).'.'.$request->image->getClientOriginalExtension();
             $request->image->move(public_path('img/portfolio'), $fileName);
-    	
+
 	    	$data = array('name' => $request->name,
 	    				'description' => $request->description,
 	    				'link' => $request->link,
@@ -161,9 +161,9 @@ class indexController extends Controller
     	}
 
 
-    	
+
     	// return view('admin/portfolio/edit', compact(''));
-    } 
+    }
 
 
     public function editPortfolio($id){
@@ -173,9 +173,9 @@ class indexController extends Controller
         $title = 'Edit Portfolio';
 
     	$portfolio = Portfolios::findOrFail($id);
-    	
+
     	return view('admin/portfolio/edit', compact('portfolio', 'info', 'menu', 'title', 'messages'));
-    } 
+    }
 
     public function updatePortfolio(Request $request){
 
@@ -216,13 +216,13 @@ class indexController extends Controller
     	return redirect()->back()->with('success', 'Portfolio Deleted Successfully');
     }
 
-    
+
     public function addSocial(){
         $messages = Message::all();
     	$info = Information::first();
         $title = 'Add Social';
         $menu = 'social';
-    	return view('admin/social/add', compact('menu', 'social', 'info', 'title', 'messages'));
+    	return view('admin/social/add', compact('menu', 'info', 'title', 'messages'));
     }
 
     public function viewSocial(){
@@ -231,8 +231,9 @@ class indexController extends Controller
         $menu= 'social';
         $title = 'View Social';
     	$socials = Social::get();
+
     	return view('admin/social/view', compact('socials', 'info', 'menu', 'title', 'messages'));
-    } 
+    }
 
     public function insertSocial(Request $request){
     	$this->validate($request,[
@@ -254,14 +255,14 @@ class indexController extends Controller
 		Social::create($data);
 
 		return redirect('/admin/social')->with('success', 'Social Link added Successfully');
-			
+
 		} catch (Exception $e) {
 			Log::error($e);
 			return redirect()->back()->withInput()->withErrors("Somthing Went Wrong ! Please Try again");
 		}
 
     	// return view('admin/social/view', compact('socials'));
-    } 
+    }
 
     public function editSocial($id){
         $messages = Message::all();
@@ -271,7 +272,7 @@ class indexController extends Controller
         $title = 'Edit Social';
 
     	return view('admin/social/edit', compact('social', 'info', 'menu', 'title', 'messages'));
-    } 
+    }
 
     public function updateSocial(Request $request){
 
@@ -296,13 +297,13 @@ class indexController extends Controller
 		Social::where('id', $id)->update($data);
 
 		return redirect('/admin/social')->with('success', 'Social Link Updated Successfully');
-			
+
 		} catch (Exception $e) {
 			Log::error($e);
 			return redirect()->back()->withInput()->withErrors("Somthing Went Wrong ! Please Try again");
 		}
 
-    } 
+    }
 
     public function deleteSocial($id){
     	$data = Social::findOrFail($id);
