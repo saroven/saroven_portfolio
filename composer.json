@@ -60,5 +60,8 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ]
+    },
+    "devDependencies": {
+        "axios": ">=0.21.2"
     }
 }
